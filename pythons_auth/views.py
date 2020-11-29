@@ -2,7 +2,7 @@ from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import redirect
 
 
-def login_views(request):
+def login_user(request):
     username = 'root'
     password = '123'
     user = authenticate(username=username, password=password)
@@ -13,7 +13,7 @@ def login_views(request):
     return redirect('index')
 
 
-def logout_views(request):
+def logout_user(request):
     logout(request)
     return redirect('index')
 
