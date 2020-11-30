@@ -37,14 +37,18 @@ def login_user(request):
         context = {'login_form': LoginForm()}
 
         return render(request, 'auth/login.html', context)
-    username = 'root'
-    password = '123'
-    user = authenticate(username=username, password=password)
-    if user:
-        login(request, user)
-        return redirect('index')
+    else:
+        login_form = LoginForm(request.POST)
+        if login_form.is_valid():
+            username = login_form.cleaned_data['username']
+            password = login_form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect('index')
 
-    return redirect('index')
+        context = {'login_form': login_form}
+        return render(request, 'auth/login.html', context)
 
 
 def logout_user(request):

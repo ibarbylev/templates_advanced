@@ -11,6 +11,10 @@
             {% bootstrap_form profile_form %}
             {% buttons %}
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <p></p>
+                <p>
+                    or <a class="button" href="{% url 'login_user' %}">Login</a>
+                </p>
             {% endbuttons %}
         </form>
     </div>
