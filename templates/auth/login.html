@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1 class="text-center">Login</h1>
+
+    <div class="row d-flex justify-content-center">
+        <form method="post" class="form" action="{% url 'login_user' %}">
+            {% csrf_token %}
+            {% bootstrap_form login_form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p></p>
+                <p>
+                    or <a class="button" href="{% url 'register_user' %}">Register</a>
+                </p>
+            {% endbuttons %}
+        </form>
+    </div>
+
+{% endblock %}
