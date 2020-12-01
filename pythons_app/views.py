@@ -6,7 +6,7 @@ from .forms import PythonCreateForm
 from .models import Python
 
 
-# @login_required(login_url='login_user')
+@login_required
 def index(req):
     pythons = Python.objects.all()
     return render(req, 'index.html', {'pythons': pythons})
