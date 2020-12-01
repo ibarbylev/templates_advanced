@@ -6,6 +6,7 @@
 
     <div class="row d-flex justify-content-center">
         <form method="post" class="form" action="{% url 'login_user' %}">
+            <input type="hidden" name="return_url" value="{{ request.GET.next }}">
             {% csrf_token %}
             {% bootstrap_form login_form %}
             {% buttons %}
