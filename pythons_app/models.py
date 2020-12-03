@@ -7,3 +7,6 @@ class Python(models.Model):
     description = models.TextField()
     # image = models.URLField()
     image = models.ImageField(upload_to='pythons')
+
+    def __str__(self):
+        return self.name
