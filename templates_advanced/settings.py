@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+
     'bootstrap4',
     'pythons_auth',
+    'books_api',
 ]
 
 MIDDLEWARE = [
