@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pythons_app.urls')),
     path('auth/', include('pythons_auth.urls')),
-    path('books/', include('books_api.urls')),
+    path('api-books/', include('books_api.urls')),
+    path('books/', include('books.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

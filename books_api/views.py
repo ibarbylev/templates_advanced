@@ -1,3 +1,5 @@
+import time
+
 from rest_framework import generics, mixins
 
 from books_api.models import Book
@@ -7,6 +9,11 @@ from books_api.serializers import BookSerializer
 class BookListAPIView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+    # for see delay in print items from script <is/books.js>
+    def list(self, request, *args, **kwargs):
+        time.sleep(2)
+        return super().list(request, *args, **kwargs)
 
 
 # If you need customization of certain methods, then you can take ONLY these methods
